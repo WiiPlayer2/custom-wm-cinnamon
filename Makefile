@@ -5,12 +5,13 @@
 INSTALL = install
 DESTDIR ?= /
 PREFIX  ?= $(DESTDIR)/usr
+WM_NAME = awesome
 
-PATH_I3_CINNAMON = $(PREFIX)/bin/i3-cinnamon
-PATH_I3_CINNAMON_SESSION_BIN = $(PREFIX)/bin/cinnamon-session-i3
-PATH_I3_CINNAMON_DESKTOP = $(PREFIX)/share/applications/i3-cinnamon.desktop
-PATH_I3_CINNAMON_SESSION = $(PREFIX)/share/cinnamon-session/sessions/i3-cinnamon.session
-PATH_I3_CINNAMON_XSESSION = $(PREFIX)/share/xsessions/i3-cinnamon.desktop
+PATH_WM_CINNAMON = $(PREFIX)/bin/$(WM_NAME)-cinnamon
+PATH_WM_CINNAMON_SESSION_BIN = $(PREFIX)/bin/cinnamon-session-$(WM_NAME)
+PATH_WM_CINNAMON_DESKTOP = $(PREFIX)/share/applications/$(WM_NAME)-cinnamon.desktop
+PATH_WM_CINNAMON_SESSION = $(PREFIX)/share/cinnamon-session/sessions/$(WM_NAME)-cinnamon.session
+PATH_WM_CINNAMON_XSESSION = $(PREFIX)/share/xsessions/$(WM_NAME)-cinnamon.desktop
 
 #
 # Targets
@@ -21,19 +22,19 @@ all:
 
 
 install:
-	$(INSTALL) -m0644 -D session/i3-cinnamon-xsession.desktop $(PATH_I3_CINNAMON_XSESSION)
-	$(INSTALL) -m0644 -D session/i3-cinnamon.desktop $(PATH_I3_CINNAMON_DESKTOP)
-	$(INSTALL) -m0644 -D session/i3-cinnamon.session $(PATH_I3_CINNAMON_SESSION)
-	$(INSTALL) -m0755 -D session/cinnamon-session-i3 $(PATH_I3_CINNAMON_SESSION_BIN)
-	$(INSTALL) -m0755 -D session/i3-cinnamon $(PATH_I3_CINNAMON)
+	$(INSTALL) -m0644 -D session/$(WM_NAME)-cinnamon-xsession.desktop $(PATH_WM_CINNAMON_XSESSION)
+	$(INSTALL) -m0644 -D session/$(WM_NAME)-cinnamon.desktop $(PATH_WM_CINNAMON_DESKTOP)
+	$(INSTALL) -m0644 -D session/$(WM_NAME)-cinnamon.session $(PATH_WM_CINNAMON_SESSION)
+	$(INSTALL) -m0755 -D session/cinnamon-session-$(WM_NAME) $(PATH_WM_CINNAMON_SESSION_BIN)
+	$(INSTALL) -m0755 -D session/$(WM_NAME)-cinnamon $(PATH_WM_CINNAMON)
 
 
 uninstall:
-	rm -f $(PATH_I3_CINNAMON)
-	rm -f $(PATH_I3_CINNAMON_DESKTOP)
-	rm -f $(PATH_I3_CINNAMON_SESSION)
-	rm -f $(PATH_I3_CINNAMON_SESSION_BIN)
-	rm -f $(PATH_I3_CINNAMON_XSESSION)
+	rm -f $(PATH_WM_CINNAMON)
+	rm -f $(PATH_WM_CINNAMON_DESKTOP)
+	rm -f $(PATH_WM_CINNAMON_SESSION)
+	rm -f $(PATH_WM_CINNAMON_SESSION_BIN)
+	rm -f $(PATH_WM_CINNAMON_XSESSION)
 
 
 .PHONY: all install uninstall

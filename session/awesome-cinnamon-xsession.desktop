@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Cinnamon + awesome
+Comment=This session logs you into Cinnamon with awesome as the window manager
+Exec=cinnamon-session-awesome
+TryExec=/usr/bin/awesome-cinnamon
+Icon=
+Type=Application

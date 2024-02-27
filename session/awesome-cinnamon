@@ -10,7 +10,7 @@ test -e $HOME/.Xresources && {
     xrdb -merge $HOME/.Xresources
 }
 
-i3
+awesome
 
 test -n "$DESKTOP_AUTOSTART_ID" && {
 dbus-send --print-reply --session --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.Logout "uint32:1"
